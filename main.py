@@ -7,11 +7,8 @@ app = Flask(__name__)
 @app.route('/getTimeStories', methods=['GET'])
 def get_time_stories():
     try:
-        # Read the saved HTML file
         with open("world.html", "r", encoding="utf-8") as f:
             html = f.read()
-
-        # Find all self.__next_f.push blocks
         pattern = r'self\.__next_f\.push\(\[1,"(.*?)"\]\)'
         matches = re.findall(pattern, html)
 
